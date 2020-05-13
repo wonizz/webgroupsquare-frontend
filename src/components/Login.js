@@ -41,55 +41,25 @@ class Login extends React.Component {
     const email = this.props.email;
     const password = this.props.password;
     return (
-      <div className="auth-page">
-        <div className="container page">
-          <div className="row">
-
-            <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign In</h1>
-              <p className="text-xs-center">
-                <Link to="/register">
-                  Need an account?
-                </Link>
-              </p>
-
-              <ListErrors errors={this.props.errors} />
-
-              <form onSubmit={this.submitForm(email, password)}>
-                <fieldset>
-
-                  <fieldset className="form-group">
-                    <input
-                      className="form-control form-control-lg"
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={this.changeEmail} />
-                  </fieldset>
-
-                  <fieldset className="form-group">
-                    <input
-                      className="form-control form-control-lg"
-                      type="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={this.changePassword} />
-                  </fieldset>
-
-                  <button
-                    className="btn btn-lg btn-primary pull-xs-right"
-                    type="submit"
-                    disabled={this.props.inProgress}>
-                    Sign in
-                  </button>
-
-                </fieldset>
-              </form>
-            </div>
-
+      <div className="login-form">
+      <form>
+          <h2 className="text-center">Log in</h2>       
+          <div className="form-group">
+              <input type="text" className="form-control" placeholder="Username" required="required"/>
           </div>
-        </div>
-      </div>
+          <div className="form-group">
+              <input type="password" className="form-control" placeholder="Password" required="required"/>
+          </div>
+          <div className="form-group">
+              <button type="submit" className="btn btn-primary btn-block">Log in</button>
+          </div>
+          <div className="clearfix">
+              <label className="pull-left checkbox-inline"><input type="checkbox"/> Remember me</label>
+              <a href="#" className="pull-right">Forgot Password?</a>
+          </div>        
+      </form>
+        <p className="text-center"><a href="#">Create an Account</a></p>
+    </div>
     );
   }
 }

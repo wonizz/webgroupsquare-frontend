@@ -67,29 +67,169 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
   return (
-    <div className="col-md-9">
-      <div className="feed-toggle">
-        <ul className="nav nav-pills outline-active">
-
-          <YourFeedTab
-            token={props.token}
-            tab={props.tab}
-            onTabClick={props.onTabClick} />
-
-          <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
-
-          <TagFilterTab tag={props.tag} />
-
-        </ul>
-      </div>
-
-      <ArticleList
-        pager={props.pager}
-        articles={props.articles}
-        loading={props.loading}
-        articlesCount={props.articlesCount}
-        currentPage={props.currentPage} />
-    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll"/>
+								<label for="selectAll"></label>
+							</span>
+						</th>
+            <th>도서명</th>
+            <th>대출일</th>
+            <th>반납예정일</th>
+            <th>등록번호</th>
+            <th>액션</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            <tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+            <td>쿠버네티스 패턴</td>
+            <td>2020-05-12</td>
+            <td>2020-05-24</td>
+            <td>A-10101234</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+            </td>
+            </tr>
+            </tbody>
+        </table>
   );
 };
 
