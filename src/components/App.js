@@ -42,14 +42,20 @@ class App extends React.Component {
 
   componentWillMount() {
     const token = window.localStorage.getItem('jwt');
+    const location = window.location.href;
     if (token) {
       agent.setToken(token);
     }
+    if(!token && location.indexOf('login')==-1){
+      window.location.href = 'http://localhost:4100/login';
+    }
+    
 
     this.props.onLoad(token ? agent.Auth.current() : null, token);
   }
 
   render() {
+    const token = window.localStorage.getItem('jwt');
     if (this.props.appLoaded) {
       return (
         <div>

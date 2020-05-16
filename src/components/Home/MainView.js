@@ -66,6 +66,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const MainView = props => {
+  if(!props.token) return;
   return (
     <table class="table table-striped table-hover">
         <thead>
