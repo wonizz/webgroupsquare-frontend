@@ -15,14 +15,15 @@ const Promise = global.Promise;
 const mapStateToProps = state => ({
   ...state.home,
   appName: state.common.appName,
-  token: state.common.token
+  token: state.common.token,
+  user: state.common.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
-  onLoad: (tab, pager, payload) =>
-    dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
+  onLoad: (payload) =>
+    dispatch({ type: HOME_PAGE_LOADED,  payload }),
   onUnload: () =>
     dispatch({  type: HOME_PAGE_UNLOADED })
 });
@@ -34,7 +35,7 @@ class Home extends React.Component {
       agent.Articles.feed :
       agent.Articles.all;
 
-    //this.props.onLoad(tab, articlesPromise, Promise.all([agent.Tags.getAll(), articlesPromise()]));
+    this.props.onLoad(agent.Articles.byUser());
   }
 
   componentWillUnmount() {
@@ -48,7 +49,7 @@ class Home extends React.Component {
             <div className="table-title">
                 <div className="row">
                     <div className="col-sm-6">
-						<h2>도서<b>대여 목록</b></h2>
+						<h2>{this.props.user.username}님의 도서<b>대여 목록</b></h2>
 					</div>
 					<div className="col-sm-6">
 						<a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>도서 예약</span></a>

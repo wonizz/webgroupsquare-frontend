@@ -1,4 +1,3 @@
-import ArticleList from '../ArticleList';
 import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
@@ -56,9 +55,9 @@ const TagFilterTab = props => {
 };
 
 const mapStateToProps = state => ({
-  ...state.articleList,
+  ...state.reservationList,
   tags: state.home.tags,
-  token: state.common.token
+  token: state.common.token,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -67,12 +66,18 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
   if(!props.token) return;
+  if(!props.rsrvList){
+    return(
+      <div className="cont-list">Loading...</div>
+    )
+  }
+  
   return (
-    <table class="table table-striped table-hover">
+    <table className="table table-striped table-hover">
         <thead>
           <tr>
 						<th>
-							<span class="custom-checkbox">
+							<span className="custom-checkbox">
 								<input type="checkbox" id="selectAll"/>
 								<label for="selectAll"></label>
 							</span>
@@ -80,155 +85,34 @@ const MainView = props => {
             <th>도서명</th>
             <th>대출일</th>
             <th>반납예정일</th>
-            <th>등록번호</th>
+            <th>반납일</th>
             <th>액션</th>
           </tr>
         </thead>
         <tbody>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
-            <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-            <td>쿠버네티스 패턴</td>
-            <td>2020-05-12</td>
-            <td>2020-05-24</td>
-            <td>A-10101234</td>
-            <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-            </td>
-            </tr>
+            {
+              props.rsrvList.map((reservation, index) => {
+                return (
+                  <tr>
+                    <td>
+                      <span className="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="options[]" value="1"/>
+                        <label for="checkbox1"></label>
+                      </span>
+                    </td>
+                    <td>{reservation.booktitle}</td>
+                    <td>{reservation.rsrvdate}</td>
+                    <td>{reservation.duedate}</td>
+                    <td>{reservation.returndate}</td>
+                    <td>
+                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                  </tr>
+                );
+              })
+            }
+
             </tbody>
         </table>
   );

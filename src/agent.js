@@ -23,7 +23,9 @@ const requests = {
   put: (url, body) =>
     superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
   post: (url, body) =>
-    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody)
+    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
+  set: (url, body) => 
+    superagent.post(`${url}`, body).use(tokenPlugin).then(responseBody)
 };
 
 const Auth = {
@@ -48,6 +50,8 @@ const Articles = {
     requests.get(`/articles?${limit(10, page)}`),
   byAuthor: (author, page) =>
     requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
+  byUser: (author, page) =>
+    requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getReservation?user=testfadfsf@test.com`),
   byTag: (tag, page) =>
     requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>
