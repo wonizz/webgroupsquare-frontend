@@ -36,7 +36,7 @@ class Home extends React.Component {
       agent.Articles.all;
 
     this.props.onLoad(agent.Articles.byUser());
-    agent.Articles.updateReservation();
+    //agent.Articles.updateReservation();
   }
 
   componentWillUnmount() {
