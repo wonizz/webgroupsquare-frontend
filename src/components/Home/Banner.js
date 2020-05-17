@@ -8,7 +8,7 @@ const Banner = ({ appName, token }) => {
     <div id="addEmployeeModal" className="modal fade">
 		<div className="modal-dialog">
 			<div className="modal-content">
-				<form>
+				<form >
 					<div className="modal-header">						
 						<h4 className="modal-title">도서 예약</h4>
 						<button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -17,10 +17,6 @@ const Banner = ({ appName, token }) => {
 						<div className="form-group">
 							<label>도서명</label>
 							<input type="text" className="form-control" required/>
-						</div>
-						<div className="form-group">
-							<label>예약자명</label>
-							<input type="email" className="form-control" required/>
 						</div>
 						<div className="form-group">
 							<label>대출일자</label>
@@ -33,7 +29,7 @@ const Banner = ({ appName, token }) => {
 					</div>
 					<div className="modal-footer">
 						<input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel"/>
-						<input type="submit" className="btn btn-success" value="Add"/>
+						<input type="submit" className="btn btn-success" value="예약하기"/>
 					</div>
 				</form>
 			</div>

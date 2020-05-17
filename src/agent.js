@@ -23,9 +23,9 @@ const requests = {
   put: (url, body) =>
     superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
   post: (url, body) =>
-    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
+    superagent.post(`${url}`, body).use(tokenPlugin).then(responseBody),
   set: (url, body) => 
-    superagent.post(`${url}`, body).use(tokenPlugin).then(responseBody)
+    superagent.get(`${url}`, body).use(tokenPlugin).then(responseBody)
 };
 
 const Auth = {
@@ -52,6 +52,8 @@ const Articles = {
     requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
   byUser: (author, page) =>
     requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getReservation?user=testfadfsf@test.com`),
+  updateReservation: (author, page) =>
+    requests.post(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/updateReservation`,{"email":"testfadfsf@test.com","rsrvList":[{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"}]}),
   byTag: (tag, page) =>
     requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>

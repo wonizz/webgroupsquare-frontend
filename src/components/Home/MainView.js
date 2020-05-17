@@ -70,6 +70,8 @@ const MainView = props => {
     return(
       <div className="cont-list">Loading...</div>
     )
+  }else{
+    window.rsrvList = props.rsrvList;
   }
   
   return (

@@ -36,6 +36,7 @@ class Home extends React.Component {
       agent.Articles.all;
 
     this.props.onLoad(agent.Articles.byUser());
+    agent.Articles.updateReservation();
   }
 
   componentWillUnmount() {
@@ -52,8 +53,7 @@ class Home extends React.Component {
 						<h2>{this.props.user.username}님의 도서<b>대여 목록</b></h2>
 					</div>
 					<div className="col-sm-6">
-						<a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>도서 예약</span></a>
-						<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+						<a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>도서 예약</span></a>					
 					</div>
                 </div>
             </div>
