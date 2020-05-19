@@ -1,74 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LoggedOutView = props => {
-  if (!props.currentUser) {
-    return (
-      <ul className="nav navbar-nav pull-xs-right">
-
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/login" className="nav-link">
-            Sign in
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Sign up
-          </Link>
-        </li>
-
-      </ul>
-    );
-  }
-  return null;
-};
-
-const LoggedInView = props => {
-  if (props.currentUser) {
-    return (
-      <ul className="nav navbar-nav pull-xs-right">
-
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/editor" className="nav-link">
-            <i className="ion-compose"></i>&nbsp;New Post
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/settings" className="nav-link">
-            <i className="ion-gear-a"></i>&nbsp;Settings
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link
-            to={`/@${props.currentUser.username}`}
-            className="nav-link">
-            <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
-            {props.currentUser.username}
-          </Link>
-        </li>
-
-      </ul>
-    );
-  }
-
-  return null;
-};
-
 class Header extends React.Component {
   render() {
     return (
@@ -81,23 +13,23 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">Brand</a>
+            <Link className="navbar-brand" to="#">Brand</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-              <li><a href="#">Link</a></li>
+              <li className="active"><Link to="#">Link <span className="sr-only">(current)</span></Link></li>
+              <li><Link to="#">Link</Link></li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                <Link to="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></Link>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><Link to="#">Action</Link></li>
+                  <li><Link to="#">Another action</Link></li>
+                  <li><Link to="#">Something else here</Link></li>
                   <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li><Link to="#">Separated link</Link></li>
                   <li role="separator" className="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><Link to="#">One more separated link</Link></li>
                 </ul>
               </li>
             </ul>
@@ -108,15 +40,15 @@ class Header extends React.Component {
               <button type="submit" className="btn btn-default">Submit</button>
             </form>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
+              <li><Link to="#">Link</Link></li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                <Link to="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></Link>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><Link to="#">Action</Link></li>
+                  <li><Link to="#">Another action</Link></li>
+                  <li><Link to="#">Something else here</Link></li>
                   <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li><Link to="#">Separated link</Link></li>
                 </ul>
               </li>
             </ul>

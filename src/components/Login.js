@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
-import ListErrors from './ListErrors';
 import React from 'react';
 import agent from '../agent';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   UPDATE_FIELD_AUTH,
   LOGIN,
@@ -69,7 +68,7 @@ class Login extends React.Component {
               </button>
           </div>   
       </form>
-        <p className="text-center"><a href="#">Create an Account</a></p>
+        <p className="text-center"><Link href="#">Create an Account</Link></p>
     </div>
     );
   }

@@ -1,4 +1,4 @@
-import article from './reducers/article';
+import article from './reducers/reservation';
 import reservationList from './reducers/reservationList';
 import auth from './reducers/auth';
 import { combineReducers } from 'redux';

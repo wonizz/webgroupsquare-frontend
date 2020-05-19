@@ -5,7 +5,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
 import { Route, Switch } from 'react-router-dom';
-import Article from '../components/Article';
 import Editor from '../components/Editor';
 import Home from '../components/Home';
 import Login from '../components/Login';
@@ -46,7 +45,7 @@ class App extends React.Component {
     if (token) {
       agent.setToken(token);
     }
-    if(!token && location.indexOf('login')==-1){
+    if(!token && location.indexOf('login')===-1){
       window.location.href = 'http://localhost:4100/login';
     }
     
@@ -55,7 +54,6 @@ class App extends React.Component {
   }
 
   render() {
-    const token = window.localStorage.getItem('jwt');
     if (this.props.appLoaded) {
       return (
         <div>
@@ -68,7 +66,6 @@ class App extends React.Component {
             <Route path="/register" component={Register} />
             <Route path="/editor/:slug" component={Editor} />
             <Route path="/editor" component={Editor} />
-            <Route path="/article/:id" component={Article} />
             <Route path="/settings" component={Settings} />
             <Route path="/@:username/favorites" component={ProfileFavorites} />
             <Route path="/@:username" component={Profile} />
