@@ -32,11 +32,11 @@ const requests = {
 
 const Auth = {
   current: () =>
-    requests.get('/user'),
+    requests.setpost('/userinfo'),
   login: (email, password) =>
-    requests.post('/users/login', { user: { email, password } }),
+    requests.setpost('https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/login', { "email": email, "password":password }),
   register: (username, email, password) =>
-    requests.post('/users', { user: { username, email, password } }),
+    requests.setpost('https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/register', { "name":username, "email": email, "password":password }),
   save: user =>
     requests.put('/user', { user })
 };
