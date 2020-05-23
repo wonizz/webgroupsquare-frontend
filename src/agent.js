@@ -31,8 +31,8 @@ const requests = {
 };
 
 const Auth = {
-  current: () =>
-    requests.setpost('/userinfo'),
+  current: (token) =>
+    requests.setpost('https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/userinfo', { "token": token}),
   login: (email, password) =>
     requests.setpost('https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/login', { "email": email, "password":password }),
   register: (username, email, password) =>

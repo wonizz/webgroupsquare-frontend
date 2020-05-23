@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.redirectTo) {
-      // this.context.router.replace(nextProps.redirectTo);
+      //this.context.router.replace(nextProps.redirectTo);
       store.dispatch(push(nextProps.redirectTo));
       this.props.onRedirect();
     }
@@ -50,7 +50,7 @@ class App extends React.Component {
     }
     
 
-    this.props.onLoad(token ? agent.Auth.current() : null, token);
+    this.props.onLoad(token ? agent.Auth.current(token) : null, token);
   }
 
   render() {

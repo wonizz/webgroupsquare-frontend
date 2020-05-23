@@ -39,6 +39,7 @@ class Home extends React.Component {
   }
 
   render() {
+    if(this.props.user === null) return false;
     return (
       <div className="container">
         <div className="table-wrapper">
