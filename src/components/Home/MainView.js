@@ -18,7 +18,7 @@ const MainView = props => {
   if(!props.token) return;
   if(!props.rsrvList){
     return(
-      <div className="cont-list">Loading...</div>
+      <div className="cont-list"></div>
     )
   }else{
     window.rsrvList = props.rsrvList;
@@ -57,8 +57,7 @@ const MainView = props => {
                     <td>{reservation.duedate}</td>
                     <td>{reservation.returndate}</td>
                     <td>
-                        <Link to="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></Link>
-                        <Link to="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></Link>
+                        <Link to="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>
                     </td>
                   </tr>
                 );

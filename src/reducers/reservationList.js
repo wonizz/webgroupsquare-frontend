@@ -53,7 +53,7 @@ export default (state = {}, action) => {
         //tags: action.payload[0].tags,
         //articles: action.payload[1].articles,
         //articlesCount: action.payload[1].articlesCount,
-        rsrvList: action.payload.Items[0].rsrvList,
+        rsrvList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
         currentPage: 0,
         tab: action.tab
       };

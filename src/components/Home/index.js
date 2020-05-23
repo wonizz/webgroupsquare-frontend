@@ -1,5 +1,6 @@
 import Banner from './Banner';
 import MainView from './MainView';
+import Modal from './Modal';
 import React from 'react';
 import agent from '../../agent';
 import { Link } from 'react-router-dom';
@@ -30,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 class Home extends React.Component {
   componentWillMount() {
    
-    this.props.onLoad(agent.Articles.byUser());
+    this.props.onLoad(agent.Articles.byUser(this.props.user.id));
     //agent.Articles.updateReservation();
   }
 
@@ -46,7 +47,7 @@ class Home extends React.Component {
             <div className="table-title">
                 <div className="row">
                     <div className="col-sm-6">
-						<h2>{this.props.user.username}님의 도서<b>대여 목록</b></h2>
+						<h2>{this.props.user.name}님의 도서<b>대여 목록</b></h2>
 					</div>
 					<div className="col-sm-6">
 						<Link to="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>도서 예약</span></Link>					
@@ -55,6 +56,7 @@ class Home extends React.Component {
             </div>
             <MainView/>
             <Banner/>
+            <Modal/>
             <div className="clearfix">
                 <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul className="pagination">

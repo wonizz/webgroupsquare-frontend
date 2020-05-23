@@ -53,7 +53,7 @@ const Articles = {
   byAuthor: (author, page) =>
     requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
   byUser: (author, page) =>
-    requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getReservation?user=testfadfsf@test.com`),
+    requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getReservation?user=${author}`),
   updateReservation: (author, page) =>
     requests.setpost(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/updateReservation`,{"email":"testfadfsf@test.com","rsrvList":[{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"}]}),
   byTag: (tag, page) =>
