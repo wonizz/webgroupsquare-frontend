@@ -33,3 +33,11 @@ function leadingZeros(n, digits) {
     }
     return zero + n;
 }
+
+function completeModal(){
+    $('#myModal').modal({ show: true});
+}
+
+function closeModal(){
+    $('#deleteEmployeeModal').modal('hide');
+}

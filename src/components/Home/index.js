@@ -1,5 +1,6 @@
 import MainView from './MainView';
 import Modal from './Modal';
+import Complete from './Complete';
 import React from 'react';
 import agent from '../../agent';
 import { Link } from 'react-router-dom';
@@ -39,12 +40,13 @@ class Home extends React.Component {
   }
 
   render() {
-    if(this.props.user === null) return false;
+    if(this.props.user === undefined) return false;
     if(this.props.bookList !== undefined){
       return(
         <div className="cont-list"></div>
       )
     }
+    
     return (
       <div className="container">
         <div className="table-wrapper">
@@ -60,6 +62,7 @@ class Home extends React.Component {
             <Modal
             onLoad={this.props.onLoad}
             />
+            <Complete/>
             <div className="clearfix">
                 <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul className="pagination">

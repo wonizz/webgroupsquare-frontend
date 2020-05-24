@@ -1,4 +1,4 @@
-import Banner from './Banner';
+import Complete from './Complete';
 import MainView from './MainView';
 import Modal from './Modal';
 import React from 'react';
@@ -55,7 +55,7 @@ class Home extends React.Component {
                 </div>
             </div>
             <MainView/>
-            <Banner/>
+            <Complete/>
             <Modal
             onLoad={this.props.onLoad}
             />

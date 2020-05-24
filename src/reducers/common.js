@@ -30,7 +30,7 @@ export default (state = defaultState, action) => {
         ...state,
         token: action.token || null,
         appLoaded: true,
-        currentUser: action.payload ? action.payload.user : null
+        currentUser: action.payload.message !== undefined ? "expired" : action.payload.user
       };
     case REDIRECT:
       return { ...state, redirectTo: null };

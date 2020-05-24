@@ -35,7 +35,6 @@ class App extends React.Component {
       this.props.onRedirect();
     }
   }
-
   componentWillMount() {
     const token = window.localStorage.getItem('jwt');
     const location = window.location.href;
@@ -45,10 +44,9 @@ class App extends React.Component {
     if(!token && location.indexOf('login')===-1){
       window.location.href = 'http://localhost:4100/login';
     }
-    
-
     this.props.onLoad(token ? agent.Auth.current(token) : null, token);
   }
+
 
   render() {
     if (this.props.appLoaded) {

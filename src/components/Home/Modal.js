@@ -5,6 +5,8 @@ const Tags = ({ props, onLoad }) => {
   const clickHandler = ev => {
     ev.preventDefault();
     onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate));
+    window.closeModal();
+    window.completeModal();
   }
     return (
       <div id="deleteEmployeeModal" className="modal fade">
