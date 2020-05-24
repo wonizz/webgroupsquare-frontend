@@ -4,7 +4,9 @@ import {
   SET_PAGE,
   APPLY_TAG_FILTER,
   HOME_PAGE_LOADED,
+  MY_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
+  MY_PAGE_UNLOADED,
   CHANGE_TAB,
   PROFILE_PAGE_LOADED,
   PROFILE_PAGE_UNLOADED,
@@ -53,12 +55,25 @@ export default (state = {}, action) => {
         //tags: action.payload[0].tags,
         //articles: action.payload[1].articles,
         //articlesCount: action.payload[1].articlesCount,
-        rsrvList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
+        bookList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
         currentPage: 0,
         tab: action.tab
       };
+    case MY_PAGE_LOADED:
+        return {
+          ...state,
+          pager: action.pager,
+          //tags: action.payload[0].tags,
+          //articles: action.payload[1].articles,
+          //articlesCount: action.payload[1].articlesCount,
+          rsrvList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
+          currentPage: 0,
+          tab: action.tab
+        };
     case HOME_PAGE_UNLOADED:
       return {};
+      case MY_PAGE_UNLOADED:
+        return {};
     case CHANGE_TAB:
       return {
         ...state,
