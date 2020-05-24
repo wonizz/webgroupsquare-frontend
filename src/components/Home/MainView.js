@@ -26,7 +26,8 @@ const MainView = props => {
     ev.preventDefault();
     window.booktitle=ev.currentTarget.attributes[0].value;
     window.email=ev.currentTarget.attributes[1].value;
-    window.returndate=window.getTimeStamp();
+    window.rsrvdate=window.getTimeStamp();
+    window.duedate=window.getTimeStamp2weeksLater();
     //this.props.onLoadMore(agent.Articles.onLoadMore(20, window.number))
   };
   return (
@@ -47,7 +48,7 @@ const MainView = props => {
         </thead>
         <tbody>
             {
-              props.bookList.map((reservation, index) => {
+              props.bookList.map((book, index) => {
                 return (
                   <tr>
                     <td>
@@ -56,13 +57,13 @@ const MainView = props => {
                         <label for="checkbox1"></label>
                       </span>
                     </td>
-                    <td>{reservation.booktitle}</td>
-                    <td>{reservation.rsrvdate}</td>
-                    <td>{reservation.duedate}</td>
+                    <td>{book.title}</td>
+                    <td>{book.author}</td>
+                    <td>{book.duedate}</td>
                     <td>
                         {
-                          `${reservation.returndate}`==="" 
-                          ? (<Link to="#deleteEmployeeModal" title={reservation.booktitle} email={props.email.id} onClick={clickHandler} className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>)
+                          `${book.duedate}`==="" 
+                          ? (<Link to="#deleteEmployeeModal" title={book.title} email={props.email.id} onClick={clickHandler} className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>)
                           : ('')  
                         }
                     </td>

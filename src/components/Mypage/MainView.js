@@ -63,7 +63,7 @@ const MainView = props => {
                     <td>{reservation.returndate}</td>
                     <td>
                         {
-                          `${reservation.returndate}`==="" 
+                          `${reservation.returndate}`=== "undefined" 
                           ? (<Link to="#deleteEmployeeModal" title={reservation.booktitle} email={props.email.id} onClick={clickHandler} className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>)
                           : ('')  
                         }

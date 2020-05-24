@@ -4,7 +4,7 @@ import agent from '../../agent';
 const Tags = ({ props, onLoad }) => {
   const clickHandler = ev => {
     ev.preventDefault();
-    onLoad(agent.Articles.returnBook(window.booktitle, window.email, window.returndate));
+    onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate));
   }
     return (
       <div id="deleteEmployeeModal" className="modal fade">
