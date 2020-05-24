@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
   if(!props.token) return;
-  if(!props.bookList){
+  if(!props.rsrvList){
     return(
       <div className="cont-list"></div>
     )
@@ -40,14 +40,15 @@ const MainView = props => {
 							</span>
 						</th>
             <th>도서명</th>
-            <th>저자</th>
+            <th>대출일</th>
             <th>반납예정일</th>
-            <th>대출신청</th>
+            <th>반납일</th>
+            <th>액션</th>
           </tr>
         </thead>
         <tbody>
             {
-              props.bookList.map((reservation, index) => {
+              props.rsrvList.map((reservation, index) => {
                 return (
                   <tr>
                     <td>
@@ -59,6 +60,7 @@ const MainView = props => {
                     <td>{reservation.booktitle}</td>
                     <td>{reservation.rsrvdate}</td>
                     <td>{reservation.duedate}</td>
+                    <td>{reservation.returndate}</td>
                     <td>
                         {
                           `${reservation.returndate}`==="" 
