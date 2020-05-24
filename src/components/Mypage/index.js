@@ -49,9 +49,6 @@ class Home extends React.Component {
                     <div className="col-sm-6">
 						<h2>{this.props.user.name}님의 도서<b>대여 목록</b></h2>
 					</div>
-					<div className="col-sm-6">
-						<Link to="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>도서 예약</span></Link>					
-					</div>
                 </div>
             </div>
             <MainView/>

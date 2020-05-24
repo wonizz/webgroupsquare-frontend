@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import React from 'react';
 import { connect } from 'react-redux';
-import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
+import { APP_LOAD, REDIRECT, LOGOUT } from '../constants/actionTypes';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../components/Home';
 import Login from '../components/Login';
@@ -24,7 +24,9 @@ const mapDispatchToProps = dispatch => ({
   onLoad: (payload, token) =>
     dispatch({ type: APP_LOAD, payload, token, skipTracking: true }),
   onRedirect: () =>
-    dispatch({ type: REDIRECT })
+    dispatch({ type: REDIRECT }),
+  onLogout: () =>
+    dispatch({  type: LOGOUT })
 });
 
 class App extends React.Component {
@@ -41,7 +43,7 @@ class App extends React.Component {
     if (token) {
       agent.setToken(token);
     }
-    if(!token && location.indexOf('login')===-1){
+    if(!token && (location.indexOf('login')===-1)){
       window.location.href = 'http://localhost:4100/login';
     }
     this.props.onLoad(token ? agent.Auth.current(token) : null, token);
@@ -50,11 +52,24 @@ class App extends React.Component {
 
   render() {
     if (this.props.appLoaded) {
+      if(this.props.currentUser === 'expired'){
+        return (
+          <div>
+          <Header
+            appName={this.props.appName}
+            currentUser={this.props.currentUser} 
+            onLogout={this.props.onLogout}/>
+            <Login/>
+            <Footer/>
+        </div>
+        )
+      }
       return (
         <div>
           <Header
             appName={this.props.appName}
-            currentUser={this.props.currentUser} />
+            currentUser={this.props.currentUser} 
+            onLogout={this.props.onLogout}/>
             <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/login" component={Login} />

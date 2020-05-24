@@ -26,12 +26,24 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case APP_LOAD:
-      return {
-        ...state,
-        token: action.token || null,
-        appLoaded: true,
-        currentUser: action.payload.message !== undefined ? "expired" : action.payload.user
-      };
+      if(action.payload === null){
+        return {
+          ...state,
+          token: action.token || null,
+          appLoaded: true,
+          currentUser: ""
+        };
+      }
+      else{ 
+        return {
+          ...state,
+          token: action.token || null,
+          appLoaded: true,
+          currentUser: 
+            action.payload.message !== undefined  ? "expired" : action.payload.user
+        };
+      }
+     
     case REDIRECT:
       return { ...state, redirectTo: null };
     case LOGOUT:
