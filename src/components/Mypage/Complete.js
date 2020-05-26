@@ -12,7 +12,7 @@ const Complete = ({ props }) => {
               <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div className="modal-body text-center">
-              <h5>도서 대여가 정상적으로 처리 되었습니다.</h5>	
+              <h5>도서 반납이 정상적으로 처리 되었습니다.</h5>	
               <p>Your account has been created successfully.</p>
               <button className="btn btn-success" data-dismiss="modal"><span>확인</span> <i className="material-icons">&#xE5C8;</i></button>
             </div>

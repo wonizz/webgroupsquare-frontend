@@ -30,7 +30,6 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
   componentWillMount() {
-   
     this.props.onLoad(agent.Articles.all());
     //agent.Articles.updateReservation();
   }
@@ -38,6 +37,8 @@ class Home extends React.Component {
   componentWillUnmount() {
     this.props.onUnload();
   }
+
+ 
 
   render() {
     if(this.props.user === undefined) return false;

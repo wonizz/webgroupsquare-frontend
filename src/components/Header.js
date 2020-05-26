@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
+    const currentUser = this.props.currentUser;
+    const clickHandler = ev => {
+      ev.preventDefault();
+      this.props.onLogout();
+    };
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -13,7 +18,7 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand" to="#">Brand</Link>
+            <Link className="navbar-brand" to="/">LIBRARY</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,17 +45,16 @@ class Header extends React.Component {
               <button type="submit" className="btn btn-default">Submit</button>
             </form>
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to="#">Link</Link></li>
-              <li className="dropdown">
-                <Link to="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="#">Action</Link></li>
-                  <li><Link to="#">Another action</Link></li>
-                  <li><Link to="#">Something else here</Link></li>
-                  <li role="separator" className="divider"></li>
-                  <li><Link to="#">Separated link</Link></li>
-                </ul>
-              </li>
+              <li><Link to="/mypage">{
+                `${currentUser}`!=="" 
+                ? ('MY PAGE')
+                : ('')  
+              }</Link></li>
+              <li><Link to="#" onClick={clickHandler}>{
+                `${currentUser}`!=="" 
+                ? ('LOG OUT')
+                : ('')  
+              }</Link></li>
             </ul>
           </div>
         </div>

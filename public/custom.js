@@ -12,8 +12,7 @@ function getTimeStamp() {
 
 function getTimeStamp2weeksLater() {
 
-    var d = new Date();
-    d.setDate(14);
+    var d = new Date(Date.now() + 12096e5);
     var s =
         leadingZeros(d.getFullYear(), 4) + '-' +
         leadingZeros(d.getMonth() + 1, 2) + '-' +
