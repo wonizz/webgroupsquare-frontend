@@ -41,7 +41,7 @@ class Home extends React.Component {
  
 
   render() {
-    if(this.props.user === undefined) return false;
+    if(this.props.user === null) return false;  
     if(this.props.bookList !== undefined){
       return(
         <div className="cont-list"></div>
