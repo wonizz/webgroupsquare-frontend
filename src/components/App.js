@@ -44,7 +44,7 @@ class App extends React.Component {
       agent.setToken(token);
     }
     if(!token && (location.indexOf('login')===-1)){
-      window.location.href = 'http://localhost:4100/login';
+      window.location.href = '/login';
     }
     this.props.onLoad(token ? agent.Auth.current(token) : null, token);
   }

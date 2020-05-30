@@ -9,12 +9,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const ListPagination = props => {
-  if (props.articlesCount <= 10) {
+  if (props.bookCount <= 2) {
     return null;
   }
 
   const range = [];
-  for (let i = 0; i < Math.ceil(props.articlesCount / 10); ++i) {
+  for (let i = 0; i < Math.ceil(props.bookCount / 2); ++i) {
     range.push(i);
   }
 
@@ -27,31 +27,29 @@ const ListPagination = props => {
   };
 
   return (
-    <nav>
-      <ul className="pagination">
-
+   
+      <div className="clearfix">
+                <ul className="pagination">
+     
         {
           range.map(v => {
             const isCurrent = v === props.currentPage;
             const onClick = ev => {
               ev.preventDefault();
-              setPage(v);
+              setPage(v+1);
             };
             return (
-              <li
-                className={ isCurrent ? 'page-item active' : 'page-item' }
-                onClick={onClick}
-                key={v.toString()}>
-
-                <a className="page-link" href="">{v + 1}</a>
-
+              <li 
+              className={ isCurrent ? 'page-item active' : 'page-item' } 
+              onClick={onClick}  
+              key={v.toString()}>
+                <a to="#">{v + 1}</a>
               </li>
             );
           })
         }
-
-      </ul>
-    </nav>
+        </ul>
+      </div>
   );
 };
 

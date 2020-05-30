@@ -34,16 +34,16 @@ export default (state = {}, action) => {
     case SET_PAGE:
       return {
         ...state,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        bookList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
+        bookCount: action.payload.ScannedCount,
         currentPage: action.page
       };
     case APPLY_TAG_FILTER:
       return {
         ...state,
-        pager: action.pager,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        //pager: action.pager,
+        bookList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
+        bookCount: action.payload.ScannedCount,
         tab: null,
         tag: action.tag,
         currentPage: 0
@@ -54,7 +54,7 @@ export default (state = {}, action) => {
         pager: action.pager,
         //tags: action.payload[0].tags,
         //articles: action.payload[1].articles,
-        //articlesCount: action.payload[1].articlesCount,
+        bookCount: action.payload.ScannedCount,
         bookList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
         currentPage: 0,
         tab: action.tab

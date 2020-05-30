@@ -49,7 +49,7 @@ const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
 const omitSlug = article => Object.assign({}, article, { slug: undefined })
 const Articles = {
   all: page =>
-    requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getBook`),
+    requests.set(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/getBook?page=${page}`),
   byAuthor: (author, page) =>
     requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
   byUser: (author, page) =>
