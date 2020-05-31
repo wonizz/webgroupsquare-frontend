@@ -23,7 +23,7 @@ const Tags = ({ props, onLoad }) => {
               </div>
               <div className="modal-footer">
                 <input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel"/>
-                <input type="submit" className="btn btn-danger" value="Delete" onClick={clickHandler}/>
+                <input type="submit" className="btn btn-danger" value="Ok" onClick={clickHandler}/>
               </div>
             </form>
           </div>
