@@ -35,7 +35,7 @@ class Register extends React.Component {
     this.submitForm = (username, email, password) => ev => {
       ev.preventDefault();
       this.props.onSubmit(username, email, password);
-      alert('test')
+      
     }
   }
 
@@ -44,7 +44,7 @@ class Register extends React.Component {
   }
 
   render() {
-    window.validateForm();
+    //window.validateForm();
     const email = this.props.email;
     const password = this.props.password;
     const username = this.props.username;
@@ -83,19 +83,6 @@ class Register extends React.Component {
                                 placeholder="Password"
                                 value={this.props.password}
                                 onChange={this.changePassword} />
-                  </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-md-4 control-label" >Confirm Password</label> 
-                  <div className="col-md-4 inputGroupContainer">
-                  <div className="input-group">
-                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                  <input
-                                className="form-control"
-                                type="password"
-                                name="confirm_password"
-                                placeholder="Password"/>
                   </div>
                   </div>
                 </div>
