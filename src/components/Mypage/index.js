@@ -3,7 +3,6 @@ import MainView from './MainView';
 import Modal from './Modal';
 import React from 'react';
 import agent from '../../agent';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   MY_PAGE_LOADED,

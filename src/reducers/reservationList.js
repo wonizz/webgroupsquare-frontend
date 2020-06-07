@@ -56,7 +56,7 @@ export default (state = {}, action) => {
         //articles: action.payload[1].articles,
         bookCount: action.payload.ScannedCount,
         bookList: action.payload.Items[0] === undefined ? "" : action.payload.Items,
-        currentPage: 0,
+        currentPage: 1,
         tab: action.tab
       };
     case MY_PAGE_LOADED:

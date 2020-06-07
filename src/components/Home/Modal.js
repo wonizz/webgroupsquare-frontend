@@ -1,10 +1,10 @@
 import React from 'react';
 import agent from '../../agent';
 
-const Tags = ({ props, onLoad }) => {
+const Tags = ({ props, onLoad, currentPage }) => {
   const clickHandler = ev => {
     ev.preventDefault();
-    onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate));
+    onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate, currentPage));
     window.closeModal();
     window.completeModal();
   }

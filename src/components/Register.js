@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import ListErrors from './ListErrors';
 import React from 'react';
 import agent from '../agent';
@@ -43,6 +42,10 @@ class Register extends React.Component {
     this.props.onUnload();
   }
 
+  componentDidMount(){
+    //window.validateForm()
+  }
+
   render() {
     //window.validateForm();
     const email = this.props.email;
@@ -52,10 +55,10 @@ class Register extends React.Component {
     return (
      
       <div className="container">
-              <ListErrors errors={this.props.errors} />
               <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)}>
                 <fieldset>
                 <legend><center><h2><b>Registration Form</b></h2></center></legend>
+                <ListErrors errors={this.props.errors} />
                 <div className="form-group">
                   <label className="col-md-4 control-label">Username</label>  
                   <div className="col-md-4 inputGroupContainer">

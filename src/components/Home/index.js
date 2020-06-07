@@ -17,7 +17,8 @@ const mapStateToProps = state => ({
   appName: state.common.appName,
   token: state.common.token,
   user: state.common.currentUser,
-  bookCount: state.reservationList.bookCount
+  bookCount: state.reservationList.bookCount,
+  currentPage: state.reservationList.currentPage
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -61,6 +62,7 @@ class Home extends React.Component {
             <MainView/>
             <Modal
             onLoad={this.props.onLoad}
+            currentPage={this.props.currentPage}
             />
             <Complete/>
             <ListPagination

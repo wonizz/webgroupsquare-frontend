@@ -72,16 +72,6 @@ function validateForm(){
                     }
                 }
             },
-			confirm_password: {
-                validators: {
-                     stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Please confirm your Password'
-                    }
-                }
-            },
             email: {
                 validators: {
                     notEmpty: {
