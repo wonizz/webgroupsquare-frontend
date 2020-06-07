@@ -34,12 +34,6 @@ const MainView = props => {
     <table className="table table-striped table-hover">
         <thead>
           <tr>
-						<th>
-							<span className="custom-checkbox">
-								<input type="checkbox" id="selectAll"/>
-								<label for="selectAll"></label>
-							</span>
-						</th>
             <th>도서명</th>
             <th>저자</th>
             <th>반납예정일</th>
@@ -51,20 +45,18 @@ const MainView = props => {
               props.bookList.map((book, index) => {
                 return (
                   <tr>
-                    <td>
-                      <span className="custom-checkbox">
-                        <input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-                        <label for="checkbox1"></label>
-                      </span>
-                    </td>
                     <td>{book.title}</td>
                     <td>{book.author}</td>
                     <td>{book.duedate}</td>
                     <td>
                         {
                           `${book.duedate}`==="" 
-                          ? (<Link to="#deleteEmployeeModal" title={book.title} email={props.email.id} onClick={clickHandler} className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>)
-                          : ('')  
+                          ? (<Link to="#reservationModal" title={book.title} email={props.email.id} onClick={clickHandler} data-toggle="modal">
+                                <button className="btn btn-primary">대여하기</button>
+                            </Link>)
+                          : (
+                              <button className="btn btn-light" disabled>대여불가</button>
+                            )  
                         }
                     </td>
                   </tr>

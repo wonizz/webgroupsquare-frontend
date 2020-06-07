@@ -9,7 +9,6 @@ import {
 } from '../constants/actionTypes';
 
 const mapStateToProps = state => ({ ...state.auth });
-
 const mapDispatchToProps = dispatch => ({
   onChangeEmail: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
@@ -31,44 +30,49 @@ class Login extends React.Component {
       this.props.onSubmit(email, password);
     };
   }
-
   componentWillUnmount() {
     this.props.onUnload();
   }
-
   render() {
     const email = this.props.email;
     const password = this.props.password;
     return (
-      <div className="login-form">
+      <div id="centerWindow" className="login-form">
       <form onSubmit={this.submitForm(email, password)}>
-          <h2 className="text-center">Log in</h2>       
-          <div className="form-group">
-              <input
-                className="form-control"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={this.changeEmail} />
-          </div>
-          <div className="form-group">
-              <input
-                className="form-control"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={this.changePassword} />
-          </div>
-          <div className="form-group">
-              <button
-                className="btn btn-lg btn-primary pull-xs-right"
-                type="submit"
-                disabled={this.props.inProgress}>
-                Sign in
-              </button>
-          </div>   
+        <h2 className="text-center">Log-In</h2>
+        <div className="form-group">
+          <input
+          className="form-control"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={this.changeEmail} />
+        </div>
+        <div className="form-group">
+          <input
+          className="form-control"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={this.changePassword} />
+        </div>
+        <div className="form-group">
+          <button
+            className="btn-login"
+            type="submit"
+            disabled={this.props.inProgress}>
+            Sign in
+          </button>
+          <Link to="/register">
+          <button
+            className="btn-register"
+            type="button"
+            disabled={this.props.inProgress}>
+            Register
+          </button>
+          </Link>
+        </div>        
       </form>
-        <p className="text-center"><Link to="/register">Create an Account</Link></p>
     </div>
     );
   }

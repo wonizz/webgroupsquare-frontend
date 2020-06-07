@@ -56,18 +56,6 @@ class Home extends React.Component {
             <Modal
             onLoad={this.props.onLoad}
             />
-            <div className="clearfix">
-                <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul className="pagination">
-                    <li className="page-item disabled"><a to="#">Previous</a></li>
-                    <li className="page-item"><Link to="#" className="page-link">1</Link></li>
-                    <li className="page-item"><Link to="#" className="page-link">2</Link></li>
-                    <li className="page-item active"><Link to="#" className="page-link">3</Link></li>
-                    <li className="page-item"><Link to="#" className="page-link">4</Link></li>
-                    <li className="page-item"><Link to="#" className="page-link">5</Link></li>
-                    <li className="page-item"><Link to="#" className="page-link">Next</Link></li>
-                </ul>
-            </div>
         </div>
     </div>
     );

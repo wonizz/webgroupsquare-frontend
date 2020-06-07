@@ -9,7 +9,7 @@ const Tags = ({ props, onLoad }) => {
     window.completeModal();
   }
     return (
-      <div id="deleteEmployeeModal" className="modal fade">
+      <div id="returnModal" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
             <form>
@@ -19,7 +19,6 @@ const Tags = ({ props, onLoad }) => {
               </div>
               <div className="modal-body">					
                 <p>정말로 도서를 반납하시겠습니까?</p>
-                <p className="text-warning"><small>This action cannot be undone.</small></p>
               </div>
               <div className="modal-footer">
                 <input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel"/>

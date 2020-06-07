@@ -33,12 +33,6 @@ const MainView = props => {
     <table className="table table-striped table-hover">
         <thead>
           <tr>
-						<th>
-							<span className="custom-checkbox">
-								<input type="checkbox" id="selectAll"/>
-								<label for="selectAll"></label>
-							</span>
-						</th>
             <th>도서명</th>
             <th>대출일</th>
             <th>반납예정일</th>
@@ -51,12 +45,6 @@ const MainView = props => {
               props.rsrvList.map((reservation, index) => {
                 return (
                   <tr>
-                    <td>
-                      <span className="custom-checkbox">
-                        <input type="checkbox" id="checkbox1" name="options[]" value="1"/>
-                        <label for="checkbox1"></label>
-                      </span>
-                    </td>
                     <td>{reservation.booktitle}</td>
                     <td>{reservation.rsrvdate}</td>
                     <td>{reservation.duedate}</td>
@@ -64,7 +52,9 @@ const MainView = props => {
                     <td>
                         {
                           `${reservation.returndate}`=== "undefined" 
-                          ? (<Link to="#deleteEmployeeModal" title={reservation.booktitle} email={props.email.id} onClick={clickHandler} className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">library_books</i></Link>)
+                          ? (<Link to="#returnModal" title={reservation.booktitle} email={props.email.id} onClick={clickHandler} data-toggle="modal">
+                              <button className="btn btn-primary">반납하기</button>
+                          </Link>)
                           : ('')  
                         }
                     </td>

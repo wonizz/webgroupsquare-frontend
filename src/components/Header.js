@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
-    const currentUser = this.props.currentUser;
+    let currentUser = this.props.currentUser;
+    currentUser === null ? currentUser = "" : "";
     const clickHandler = ev => {
       ev.preventDefault();
       this.props.onLogout();
@@ -22,36 +23,15 @@ class Header extends React.Component {
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav">
-              <li className="active"><Link to="#">Link <span className="sr-only">(current)</span></Link></li>
-              <li><Link to="#">Link</Link></li>
-              <li className="dropdown">
-                <Link to="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="#">Action</Link></li>
-                  <li><Link to="#">Another action</Link></li>
-                  <li><Link to="#">Something else here</Link></li>
-                  <li role="separator" className="divider"></li>
-                  <li><Link to="#">Separated link</Link></li>
-                  <li role="separator" className="divider"></li>
-                  <li><Link to="#">One more separated link</Link></li>
-                </ul>
-              </li>
-            </ul>
-            <form className="navbar-form navbar-left">
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Search"/>
-              </div>
-              <button type="submit" className="btn btn-default">Submit</button>
-            </form>
+           
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/mypage">{
-                `${currentUser}`!=="" 
+                `${currentUser}`!==""
                 ? ('MY PAGE')
                 : ('')  
               }</Link></li>
               <li><Link to="#" onClick={clickHandler}>{
-                `${currentUser}`!=="" 
+                `${currentUser}`!==""
                 ? ('LOG OUT')
                 : ('')  
               }</Link></li>

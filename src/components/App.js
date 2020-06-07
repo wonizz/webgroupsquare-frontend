@@ -56,9 +56,7 @@ class App extends React.Component {
         return (
           <div>
           <Header
-            appName={this.props.appName}
-            currentUser={this.props.currentUser} 
-            onLogout={this.props.onLogout}/>
+            appName={this.props.appName}/>
             <Login/>
             <Footer/>
         </div>
