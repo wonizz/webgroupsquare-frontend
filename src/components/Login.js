@@ -38,45 +38,42 @@ class Login extends React.Component {
     const email = this.props.email;
     const password = this.props.password;
     return (
-      <div id="centerWindow" className="login-form">
-      <h2 className="text-center">Log-In</h2>
-      <ListErrors errors={this.props.errors} />
-      <form onSubmit={this.submitForm(email, password)}>
-        
-        <div className="form-group">
-          <input
-          className="form-control"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={this.changeEmail} />
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <ListErrors errors={this.props.errors} />
+          <div class="fadeIn first">
+            <img src="https://image.flaticon.com/icons/svg/2286/2286310.svg"  width="100" height="100" id="icon" alt="User Icon"/>
+          </div>
+          <form onSubmit={this.submitForm(email, password)}>
+            
+              <input
+              className="fadeIn second"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={this.changeEmail} />
+            
+           
+              <input
+              className="fadeIn third"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={this.changePassword} />
+              <input
+                className="fadeIn fourth"
+                type="submit"
+                disabled={this.props.inProgress}
+                value="Log in"
+              />
+              <div id="formFooter">
+                <Link class="underlineHover" to="/register">Create Account?</Link>
+              </div>
+          </form>
+
+
         </div>
-        <div className="form-group">
-          <input
-          className="form-control"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={this.changePassword} />
-        </div>
-        <div className="form-group">
-          <button
-            className="btn-login"
-            type="submit"
-            disabled={this.props.inProgress}>
-            Sign in
-          </button>
-          <Link to="/register">
-          <button
-            className="btn-register"
-            type="button"
-            disabled={this.props.inProgress}>
-            Register
-          </button>
-          </Link>
-        </div>        
-      </form>
-    </div>
+      </div>
     );
   }
 }

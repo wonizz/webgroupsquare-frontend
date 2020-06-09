@@ -43,7 +43,7 @@ class Register extends React.Component {
   }
 
   componentDidMount(){
-    //window.validateForm()
+    window.validateForm()
   }
 
   render() {

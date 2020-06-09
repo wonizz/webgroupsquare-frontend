@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CHANGE_TAB } from '../../constants/actionTypes';
@@ -22,6 +22,10 @@ const MainView = props => {
       <div className="cont-list"></div>
     )
   }
+  if(props.bookList){
+    window.makeGrid();
+  }
+  
   const clickHandler = ev => {
     ev.preventDefault();
     window.booktitle=ev.currentTarget.attributes[0].value;
@@ -30,8 +34,10 @@ const MainView = props => {
     window.duedate=window.getTimeStamp2weeksLater();
     //this.props.onLoadMore(agent.Articles.onLoadMore(20, window.number))
   };
+
+  
   return (
-    <table className="table table-striped table-hover">
+    <table id="example" className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>도서명</th>

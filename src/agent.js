@@ -58,8 +58,8 @@ const Articles = {
     requests.setpost(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/updateReservation`,{"email":"testfadfsf@test.com","rsrvList":[{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"},{"booktitle":"쿠버네티스 패턴","duedate":"2020-05-26","returndate":"2020-05-18","returnYN":"Y","rsrvdate":"2020-05-12"}]}),
   returnBook: (booktitle, email, returndate) =>
     requests.setpost(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/returnBook`,{ "booktitle":booktitle, "email": email, "returndate":returndate }),
-  checkoutBook: (booktitle, email, rsrvdate, duedate, currentPage) =>
-    requests.setpost(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/checkoutBook`,{ "booktitle":booktitle, "email": email, "rsrvdate":rsrvdate, "duedate": duedate, "currentPage": currentPage}),
+  checkoutBook: (booktitle, email, rsrvdate, duedate) =>
+    requests.setpost(`https://8xk6c6vlz2.execute-api.ap-northeast-2.amazonaws.com/checkoutBook`,{ "booktitle":booktitle, "email": email, "rsrvdate":rsrvdate, "duedate": duedate}),
   byTag: (tag, page) =>
     requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>

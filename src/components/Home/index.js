@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
   appName: state.common.appName,
   token: state.common.token,
   user: state.common.currentUser,
-  bookCount: state.reservationList.bookCount,
+  bookCount: state.reservationList,
   currentPage: state.reservationList.currentPage
 });
 
@@ -40,7 +40,10 @@ class Home extends React.Component {
     this.props.onUnload();
   }
 
- 
+  componentDidMount(){
+    //window.makeGrid()
+    //alert(this.props.bookCount)
+  }
 
   render() {
     if(this.props.user === null) return false;  
@@ -65,9 +68,7 @@ class Home extends React.Component {
             currentPage={this.props.currentPage}
             />
             <Complete/>
-            <ListPagination
-              bookCount={this.props.bookCount}
-            />
+           
         </div>
     </div>
     );

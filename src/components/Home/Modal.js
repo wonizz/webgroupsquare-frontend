@@ -4,7 +4,7 @@ import agent from '../../agent';
 const Tags = ({ props, onLoad, currentPage }) => {
   const clickHandler = ev => {
     ev.preventDefault();
-    onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate, currentPage));
+    onLoad(agent.Articles.checkoutBook(window.booktitle, window.email, window.rsrvdate, window.duedate));
     window.closeModal();
     window.completeModal();
   }

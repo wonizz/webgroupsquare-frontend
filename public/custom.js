@@ -83,5 +83,13 @@ function validateForm(){
                 }
             }
             }
+        }).on('status.field.bv', function(e, data) {
+                data.bv.disableSubmitButtons(false);
         })
+        
+}
+
+function makeGrid(){
+    setTimeout(function() { $('#example').DataTable(); }, 200);
+        
 }

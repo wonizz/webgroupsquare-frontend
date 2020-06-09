@@ -46,6 +46,10 @@ class App extends React.Component {
     if(!token && (location.indexOf('login')===-1)){
       window.location.href = '/login';
     }
+
+    if(token && (location.indexOf('login')!==-1 || location.indexOf('register')!==-1)){
+      window.location.href = '/';
+    }
     this.props.onLoad(token ? agent.Auth.current(token) : null, token);
   }
 
