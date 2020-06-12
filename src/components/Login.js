@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import {
   UPDATE_FIELD_AUTH,
   LOGIN,
-  LOGIN_PAGE_UNLOADED
+  LOGIN_PAGE_UNLOADED,
+  LOGIN_PAGE_ERROR
 } from '../constants/actionTypes';
 
 const mapStateToProps = state => ({ ...state.auth });
@@ -18,7 +19,9 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: (email, password) =>
     dispatch({ type: LOGIN, payload: agent.Auth.login(email, password) }),
   onUnload: () =>
-    dispatch({ type: LOGIN_PAGE_UNLOADED })
+    dispatch({ type: LOGIN_PAGE_UNLOADED }),
+  onError: () =>
+    dispatch({ type: LOGIN_PAGE_ERROR})
 });
 
 class Login extends React.Component {
@@ -28,7 +31,11 @@ class Login extends React.Component {
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.submitForm = (email, password) => ev => {
       ev.preventDefault();
-      this.props.onSubmit(email, password);
+      if(email == "" || password == ""){
+        this.props.onError();
+      }else{
+        this.props.onSubmit(email, password);
+      }
     };
   }
   componentWillUnmount() {
