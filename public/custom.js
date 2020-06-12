@@ -44,6 +44,9 @@ function closeModal(){
 }
 
 function validateForm(){
+    $("#contact_form").submit(function(ev){
+        ev.preventDefault();
+    });
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -54,31 +57,38 @@ function validateForm(){
         fields: {
 			 user_name: {
                 validators: {
-                     stringLength: {
-                        min: 8,
-                    },
                     notEmpty: {
-                        message: 'Please enter your Username'
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: 'The username can only consist of alphabetical and number'
                     }
                 }
             },
 			 user_password: {
                 validators: {
-                     stringLength: {
-                        min: 8,
-                    },
                     notEmpty: {
-                        message: 'Please enter your Password'
+                        message: 'The password is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'The password must have at least 8 characters'
                     }
                 }
             },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'Please enter your Email Address'
+                        message: 'The email address is required and cannot be empty'
                     },
                     emailAddress: {
-                        message: 'Please enter a valid Email Address'
+                        message: 'The email address is not a valid'
                     }
                 }
             }

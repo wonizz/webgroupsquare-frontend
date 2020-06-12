@@ -2,6 +2,7 @@ import ListErrors from './ListErrors';
 import React from 'react';
 import agent from '../agent';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   UPDATE_FIELD_AUTH,
   REGISTER,
@@ -55,64 +56,75 @@ class Register extends React.Component {
     return (
      
       <div className="container">
-              <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)}>
+              <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)} data-toggle="validator" role="form">
                 <fieldset>
                 <legend><center><h2><b>Registration Form</b></h2></center></legend>
                 <ListErrors errors={this.props.errors} />
                 <div className="form-group">
-                  <label className="col-md-4 control-label">Username</label>  
+                <label className="col-md-4 control-label">E-Mail</label>  
                   <div className="col-md-4 inputGroupContainer">
-                  <div className="input-group">
-                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                  <input
-                                className="form-control"
-                                type="text"
-                                name="user_name"
-                                placeholder="Username"
-                                value={this.props.username}
-                                onChange={this.changeUsername} />
-                  </div>
-                  </div>
-                  </div>
-                  <div className="form-group">
-                  <label className="col-md-4 control-label" >Password</label> 
-                  <div className="col-md-4 inputGroupContainer">
-                  <div className="input-group">
-                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                  <input
-                                className="form-control"
-                                type="password"
-                                name="user_password"
-                                placeholder="Password"
-                                value={this.props.password}
-                                onChange={this.changePassword} />
-                  </div>
+                    <div className="input-group">
+                      <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+                      <input
+                                    className="form-control form-control-lg"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={this.props.email}
+                                    onChange={this.changeEmail} />
+                    </div>
                   </div>
                 </div>
-                  <div className="form-group">
-                  <label className="col-md-4 control-label">E-Mail</label>  
+                
+                <div className="form-group">
+                <label className="col-md-4 control-label" >Password</label> 
                   <div className="col-md-4 inputGroupContainer">
-                  <div className="input-group">
-                    <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-                  <input
-                                className="form-control form-control-lg"
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                value={this.props.email}
-                                onChange={this.changeEmail} />
+                    <div className="input-group">
+                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                    <input
+                                  className="form-control"
+                                  type="password"
+                                  name="user_password"
+                                  placeholder="Password"
+                                  value={this.props.password}
+                                  onChange={this.changePassword} 
+                                  data-minlength="6"  
+                                  placeholder="Password" 
+                                  required
+                                  />
+                    </div>
                   </div>
+                </div>
+                <div className="form-group">
+                <label className="col-md-4 control-label">Username</label>  
+                  <div className="col-md-4 inputGroupContainer">
+                    <div className="input-group">
+                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                    <input
+                                  className="form-control"
+                                  type="text"
+                                  name="user_name"
+                                  placeholder="Username"
+                                  value={this.props.username}
+                                  onChange={this.changeUsername} />
+                    </div>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-md-4 control-label"></label>
                   <div className="col-md-4">
                   <button
-                    className="btn btn-warning"
+                    className="btn btn-primary btn-lg"
                     type="submit"
                     disabled={this.props.inProgress}>
                     Sign up
                   </button>
+                  <Link to="/login">
+                  <button
+                    className="btn btn-primary btn-lg">
+                    Back
+                  </button> 
+                  </Link>
                   </div>
                 </div>
                 </fieldset>
