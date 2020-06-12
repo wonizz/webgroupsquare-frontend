@@ -52,8 +52,25 @@ const MainView = props => {
                 return (
                   <tr>
                     <td>{book.title}</td>
-                    <td>{book.author}</td>
-                    <td>{book.duedate}</td>
+                    <td>
+                    {
+                      `${book.author}`==='undefined'
+                      ? (`-`)
+                      : (
+                          `${book.author}`
+                        )  
+                    }
+                    
+                    </td>
+                    <td>
+                    {
+                      `${book.duedate}`==="" 
+                      ? (`-`)
+                      : (
+                          `${book.duedate}`
+                        )  
+                    }
+                    </td>
                     <td>
                         {
                           `${book.duedate}`==="" 
