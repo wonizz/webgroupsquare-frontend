@@ -37,6 +37,16 @@ function completeModal(){
     $('#myModal').modal({ show: true});
 }
 
+function openSuccessModal(){
+    $('#successModal').modal({ show: true});
+}
+
+function closeSuccessModalEvent(){
+    $('#successModal').on('hidden.bs.modal', function (e) {
+        window.location.href = '/login';
+    })
+}
+
 function closeModal(){
     $('#reservationModal').modal('hide');
     $('#returnModal').modal('hide');
@@ -82,6 +92,14 @@ function validateForm(){
                     }
                 }
             },
+            confirm_password: {
+                validators: {
+                    identical: {
+                        field: 'user_password',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            },
             email: {
                 validators: {
                     notEmpty: {
@@ -93,13 +111,34 @@ function validateForm(){
                 }
             }
             }
-        }).on('status.field.bv', function(e, data) {
+        }).on('error.field.bv', function(e, data) {
+            if (data.bv.getSubmitButton()) {
                 data.bv.disableSubmitButtons(false);
+            }
         })
+        .on('success.field.bv', function(e, data) {
+            if (data.bv.getSubmitButton()) {
+                data.bv.disableSubmitButtons(false);
+            }
+        });
         
 }
 
+function isSubmitOk(){
+    var disabledYN = true;
+    $('.input-group > i').each(function(){
+        var className = $(this).attr('class')
+        if(className.indexOf('glyphicon-ok') ==-1){
+            disabledYN = false;
+        }
+    })
+    return disabledYN;
+}
+
 function makeGrid(){
-    setTimeout(function() { $('#example').DataTable(); }, 200);
+    setTimeout(function() { 
+        $('#example').DataTable(); 
+        $('#example_length').hide();
+    }, 200);
         
 }

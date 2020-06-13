@@ -58,12 +58,18 @@ export default (state = defaultState, action) => {
         currentUser: action.error ? null : action.payload.user
       };
     case LOGIN:
-    case REGISTER:
       return {
         ...state,
         redirectTo: action.error ? null : '/',
         token: action.error ? null : action.payload.user.token,
         currentUser: action.error ? null : action.payload.user
+      }
+    case REGISTER:
+      return {
+        ...state,
+        //redirectTo: action.error ? null : '/',
+        //token: action.error ? null : action.payload.user.token,
+        //currentUser: action.error ? null : action.payload.user
       };
     case DELETE_ARTICLE:
       return { ...state, redirectTo: '/' };
