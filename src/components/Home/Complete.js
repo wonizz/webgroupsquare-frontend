@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Complete = ({ props }) => {
+const Complete = ({ bookCount }) => {
+    if(bookCount === undefined){
+      return (
+        <div></div>
+      )
+    }
     return (
       <div id="myModal" className="modal fade">
         <div className="modal-dialog modal-confirm">

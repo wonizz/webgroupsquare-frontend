@@ -65,22 +65,22 @@ function validateForm(){
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-			 user_name: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9]+$/,
-                        message: 'The username can only consist of alphabetical and number'
+            user_name:{
+                validators:{
+                        notEmpty: {
+                            message: '이름을 입력하세요.'
+                        },
+                        stringLength: {
+                            min: 3,
+                            max: 10,
+                            message: '이름은 3자 이상 10자 이하로 입력하세요.'
+                        },
+                        regexp: {
+                            regexp: /^[\u3131-\u314e|\u314f-\u3163|\uac00-\ud7a3\s/g]+$/,
+                            message: '한글로 입력하세요.'
+                        }   
                     }
-                }
-            },
+             },
 			 user_password: {
                 validators: {
                     notEmpty: {
@@ -107,7 +107,11 @@ function validateForm(){
                     },
                     emailAddress: {
                         message: 'The email address is not a valid'
-                    }
+                    },
+                    regexp: {
+                        regexp: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@samsung.com$/,
+                        message: 'The e-mail must be end with samsung.com'
+                    }   
                 }
             }
             }

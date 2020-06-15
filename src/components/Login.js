@@ -31,7 +31,7 @@ class Login extends React.Component {
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.submitForm = (email, password) => ev => {
       ev.preventDefault();
-      if(email == "" || password == ""){
+      if(email === "" || password === "" || email === undefined || password === undefined){
         this.props.onError();
       }else{
         this.props.onSubmit(email, password);
@@ -47,10 +47,11 @@ class Login extends React.Component {
     return (
       <div class="wrapper fadeInDown">
         <div id="formContent">
-          <ListErrors errors={this.props.errors} />
+          
           <div class="fadeIn first">
             <img src="https://image.flaticon.com/icons/svg/2286/2286310.svg"  width="100" height="100" id="icon" alt="User Icon"/>
           </div>
+          <ListErrors errors={this.props.errors} />
           <form onSubmit={this.submitForm(email, password)}>
             
               <input

@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
   appName: state.common.appName,
   token: state.common.token,
   user: state.common.currentUser,
-  bookCount: state.reservationList,
+  bookCount: state.reservationList.bookList,
   currentPage: state.reservationList.currentPage
 });
 
@@ -67,7 +67,9 @@ class Home extends React.Component {
             onLoad={this.props.onLoad}
             currentPage={this.props.currentPage}
             />
-            <Complete/>
+            <Complete
+            bookCount={this.props.bookCount}
+            />
            
         </div>
     </div>

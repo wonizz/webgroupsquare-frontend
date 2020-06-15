@@ -81,7 +81,6 @@
     text-transform: uppercase;
     display:inline-block;
     margin: 40px 8px 10px 8px; 
-    color: #cccccc;
   }
   
   
@@ -144,7 +143,7 @@
     margin: 5px 20px 40px 20px;
     border: none;
     color: black;
-    padding: 15px 80px;
+    padding: 15px 55px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

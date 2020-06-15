@@ -62,7 +62,9 @@ class Register extends React.Component {
     const password = this.props.password;
     const confirmpassword = this.props.confirmpassword;
     const username = this.props.username;
-
+    const styleObj = {
+      "margin-left": "30px",
+    }
     return (
      
       <div className="container">
@@ -153,7 +155,7 @@ class Register extends React.Component {
                   </button>
                   <Link to="/login">
                   <button
-                    className="btn btn-primary btn-lg">
+                    className="btn btn-primary btn-lg" style={styleObj}>
                     Back
                   </button> 
                   </Link>

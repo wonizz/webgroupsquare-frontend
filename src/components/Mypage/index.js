@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
   ...state.home,
   appName: state.common.appName,
   token: state.common.token,
-  user: state.common.currentUser
+  user: state.common.currentUser,
+  rsrvCount: state.reservationList.rsrvList
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -51,7 +52,9 @@ class Home extends React.Component {
                 </div>
             </div>
             <MainView/>
-            <Complete/>
+            <Complete
+            rsrvCount={this.props.rsrvCount}
+            />
             <Modal
             onLoad={this.props.onLoad}
             />
