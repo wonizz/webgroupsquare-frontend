@@ -44,43 +44,64 @@ class Login extends React.Component {
   render() {
     const email = this.props.email;
     const password = this.props.password;
+    const styleObj = {
+      "margin-left": "30px",
+    }
     return (
-      <div className="wrapper fadeInDown">
-        <div id="formContent">
-
-          <div className="fadeIn first">
-            <img src="https://image.flaticon.com/icons/svg/2286/2286310.svg" width="100" height="100" id="icon" alt="User Icon" />
-          </div>
-          <ListErrors errors={this.props.errors} />
-          <form onSubmit={this.submitForm(email, password)}>
-
-            <input
-              className="fadeIn second"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={this.changeEmail} />
-
-
-            <input
-              className="fadeIn third"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={this.changePassword} />
-            <input
-              className="fadeIn fourth"
-              type="submit"
-              disabled={this.props.inProgress}
-              value="Log in"
-            />
-            <div id="formFooter">
-              <Link className="underlineHover" to="/register">Create Account?</Link>
+      <div className="container fadeInDown">
+        <form onSubmit={this.submitForm(email, password)} className="well form-horizontal bv-form">
+          <fieldset>
+            <legend><center><h2><b>Marketing Service Group Login</b></h2></center></legend>
+            <ListErrors errors={this.props.errors} />
+            <div className="form-group">
+              <label className="col-md-4 control-label">E-Mail</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+                  <input
+                    className="form-control"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={this.changeEmail} />
+                </div>
+              </div>
             </div>
-          </form>
 
+            <div className="form-group">
+              <label className="col-md-4 control-label" >Password</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                  <input
+                    className="form-control"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={this.changePassword} />
+                </div>
+              </div>
+            </div>
 
-        </div>
+            <div className="form-group">
+              <label className="col-md-4 control-label"></label>
+              <div className="col-md-4">
+                <button
+                  className="btn btn-primary btn-lg"
+                  type="submit"
+                  disabled={this.props.inProgress}>
+                  Login
+                  </button>
+                <Link to="/register">
+                  <button
+                    className="btn btn-primary btn-lg" style={styleObj}>
+                    create Account
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </fieldset>
+        </form>
       </div>
     );
   }
