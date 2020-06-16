@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => ({
   onUnload: () =>
     dispatch({ type: LOGIN_PAGE_UNLOADED }),
   onError: () =>
-    dispatch({ type: LOGIN_PAGE_ERROR})
+    dispatch({ type: LOGIN_PAGE_ERROR })
 });
 
 class Login extends React.Component {
@@ -31,9 +31,9 @@ class Login extends React.Component {
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.submitForm = (email, password) => ev => {
       ev.preventDefault();
-      if(email === "" || password === "" || email === undefined || password === undefined){
+      if (email === "" || password === "" || email === undefined || password === undefined) {
         this.props.onError();
-      }else{
+      } else {
         this.props.onSubmit(email, password);
       }
     };
@@ -45,38 +45,38 @@ class Login extends React.Component {
     const email = this.props.email;
     const password = this.props.password;
     return (
-      <div class="wrapper fadeInDown">
+      <div className="wrapper fadeInDown">
         <div id="formContent">
-          
-          <div class="fadeIn first">
-            <img src="https://image.flaticon.com/icons/svg/2286/2286310.svg"  width="100" height="100" id="icon" alt="User Icon"/>
+
+          <div className="fadeIn first">
+            <img src="https://image.flaticon.com/icons/svg/2286/2286310.svg" width="100" height="100" id="icon" alt="User Icon" />
           </div>
           <ListErrors errors={this.props.errors} />
           <form onSubmit={this.submitForm(email, password)}>
-            
-              <input
+
+            <input
               className="fadeIn second"
               type="email"
               placeholder="Email"
               value={email}
               onChange={this.changeEmail} />
-            
-           
-              <input
+
+
+            <input
               className="fadeIn third"
               type="password"
               placeholder="Password"
               value={password}
               onChange={this.changePassword} />
-              <input
-                className="fadeIn fourth"
-                type="submit"
-                disabled={this.props.inProgress}
-                value="Log in"
-              />
-              <div id="formFooter">
-                <Link class="underlineHover" to="/register">Create Account?</Link>
-              </div>
+            <input
+              className="fadeIn fourth"
+              type="submit"
+              disabled={this.props.inProgress}
+              value="Log in"
+            />
+            <div id="formFooter">
+              <Link className="underlineHover" to="/register">Create Account?</Link>
+            </div>
           </form>
 
 
