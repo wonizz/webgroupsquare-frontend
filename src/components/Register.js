@@ -10,10 +10,10 @@ import {
   REGISTER_PAGE_UNLOADED
 } from '../constants/actionTypes';
 
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
   ...state.auth,
-  success : state.auth.success
- });
+  success: state.auth.success
+});
 
 const mapDispatchToProps = dispatch => ({
   onChangeEmail: value =>
@@ -41,10 +41,10 @@ class Register extends React.Component {
     this.changeUsername = ev => this.props.onChangeUsername(ev.target.value);
 
     this.submitForm = (username, email, password) => ev => {
-      if(!window.isSubmitOk()) return false;
+      if (!window.isSubmitOk()) return false;
       ev.preventDefault();
       this.props.onSubmit(username, email, password);
-      
+
     }
   }
 
@@ -52,7 +52,7 @@ class Register extends React.Component {
     this.props.onUnload();
   }
 
-  componentDidMount(){
+  componentDidMount() {
     window.validateForm();
   }
 
@@ -66,104 +66,104 @@ class Register extends React.Component {
       "margin-left": "30px",
     }
     return (
-     
-      <div className="container">
-              <SuccessModal
-                success={this.props.success}
-              />
-              <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)} data-toggle="validator" role="form">
-                <fieldset>
-                <legend><center><h2><b>Registration Form</b></h2></center></legend>
-                <ListErrors errors={this.props.errors} />
-                <div className="form-group">
-                <label className="col-md-4 control-label">E-Mail</label>  
-                  <div className="col-md-4 inputGroupContainer">
-                    <div className="input-group">
-                      <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-                      <input
-                                    className="form-control form-control-lg"
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    value={this.props.email}
-                                    onChange={this.changeEmail} />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="form-group">
-                <label className="col-md-4 control-label" >Password</label> 
-                  <div className="col-md-4 inputGroupContainer">
-                    <div className="input-group">
-                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                    <input
-                                  className="form-control"
-                                  type="password"
-                                  name="user_password"
-                                  placeholder="Password"
-                                  value={this.props.password}
-                                  onChange={this.changePassword} 
-                                  data-minlength="8"  
-                                  required
-                                  />
-                    </div>
-                  </div>
-                </div>
 
-                <div className="form-group">
-                <label className="col-md-4 control-label" >Confirm Password</label> 
-                  <div className="col-md-4 inputGroupContainer">
-                    <div className="input-group">
-                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                    <input
-                                  className="form-control"
-                                  type="password"
-                                  name="confirm_password"
-                                  placeholder="Confirm Password"
-                                  value={this.props.confirmpassword}
-                                  onChange={this.changeConfirmPassword} 
-                                  data-minlength="8"  
-                                  required
-                                  />
-                    </div>
-                  </div>
+      <div className="container fadeInDown">
+        <SuccessModal
+          success={this.props.success}
+        />
+        <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)} data-toggle="validator" role="form">
+          <fieldset>
+            <legend><center><h2><b>Registration Form</b></h2></center></legend>
+            <ListErrors errors={this.props.errors} />
+            <div className="form-group">
+              <label className="col-md-4 control-label">E-Mail</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+                  <input
+                    className="form-control form-control-lg"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={this.props.email}
+                    onChange={this.changeEmail} />
                 </div>
+              </div>
+            </div>
 
-                <div className="form-group">
-                <label className="col-md-4 control-label">Username</label>  
-                  <div className="col-md-4 inputGroupContainer">
-                    <div className="input-group">
-                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                    <input
-                                  className="form-control"
-                                  type="text"
-                                  name="user_name"
-                                  placeholder="Username"
-                                  value={this.props.username}
-                                  onChange={this.changeUsername} />
-                    </div>
-                  </div>
+            <div className="form-group">
+              <label className="col-md-4 control-label" >Password</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="user_password"
+                    placeholder="Password"
+                    value={this.props.password}
+                    onChange={this.changePassword}
+                    data-minlength="8"
+                    required
+                  />
                 </div>
-                <div className="form-group">
-                  <label className="col-md-4 control-label"></label>
-                  <div className="col-md-4">
-                  <button
-                    className="btn btn-primary btn-lg"
-                    type="submit"
-                    disabled={this.props.inProgress}>
-                    Sign up
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="col-md-4 control-label" >Confirm Password</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    value={this.props.confirmpassword}
+                    onChange={this.changeConfirmPassword}
+                    data-minlength="8"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="col-md-4 control-label">Username</label>
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="user_name"
+                    placeholder="Username"
+                    value={this.props.username}
+                    onChange={this.changeUsername} />
+                </div>
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="col-md-4 control-label"></label>
+              <div className="col-md-4">
+                <button
+                  className="btn btn-primary btn-lg"
+                  type="submit"
+                  disabled={this.props.inProgress}>
+                  Sign up
                   </button>
-                  <Link to="/login">
+                <Link to="/login">
                   <button
                     className="btn btn-primary btn-lg" style={styleObj}>
                     Back
-                  </button> 
-                  </Link>
-                  </div>
-                </div>
-                </fieldset>
-          </form>
-        </div>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     );
   }
 }
