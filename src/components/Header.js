@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import SuccessModal from './SuccessModal';
 class Header extends React.Component {
   render() {
-    let currentUser = this.props.currentUser;
-    currentUser === null ? currentUser = "" : "";
+    let currentUser = this.props.currentUser || "";
     const clickHandler = ev => {
       ev.preventDefault();
       this.props.onLogout();

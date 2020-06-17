@@ -3,7 +3,6 @@ import React from 'react';
 import agent from '../agent';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SuccessModal from './SuccessModal';
 import {
   UPDATE_FIELD_AUTH,
   REGISTER,
@@ -60,7 +59,6 @@ class Register extends React.Component {
     //window.validateForm();
     const email = this.props.email;
     const password = this.props.password;
-    const confirmpassword = this.props.confirmpassword;
     const username = this.props.username;
     const styleObj = {
       "margin-left": "30px",
@@ -71,7 +69,7 @@ class Register extends React.Component {
     }
     return (
       <div className="container fadeInDown">
-        <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)} data-toggle="validator" role="form">
+        <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)}>
           <fieldset>
             <legend><center><h2><b>Registration Form</b></h2></center></legend>
             <ListErrors errors={this.props.errors} />

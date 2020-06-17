@@ -32,7 +32,6 @@ const mapDispatchToProps = dispatch => ({
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.redirectTo) {
-      //this.context.router.replace(nextProps.redirectTo);
       store.dispatch(push(nextProps.redirectTo));
       this.props.onRedirect();
     }
@@ -43,6 +42,8 @@ class App extends React.Component {
     if (token) {
       agent.setToken(token);
     }
+
+    //token이 없는 상태에서 login 페이지 접속시
     if(!token && (location.indexOf('login')===-1)){
       window.location.href = '/login';
     }

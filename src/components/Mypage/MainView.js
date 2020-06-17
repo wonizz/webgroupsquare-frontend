@@ -27,7 +27,6 @@ const MainView = props => {
     window.booktitle = ev.currentTarget.attributes[0].value;
     window.email = ev.currentTarget.attributes[1].value;
     window.returndate = window.getTimeStamp();
-    //this.props.onLoadMore(agent.Articles.onLoadMore(20, window.number))
   };
   return (
     <table className="table table-striped table-bordered dataTable no-footer">

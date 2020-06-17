@@ -9,7 +9,6 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
-import ListPagination from '../ListPagination';
 
 
 const mapStateToProps = state => ({
@@ -41,8 +40,7 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    //window.makeGrid()
-    //alert(this.props.bookCount)
+  
   }
 
   render() {

@@ -33,6 +33,9 @@ function leadingZeros(n, digits) {
     return zero + n;
 }
 
+/**
+ * Modal 창 관련 
+ */
 function completeModal(){
     $('#myModal').modal({ show: true});
 }
@@ -53,6 +56,7 @@ function closeModal(){
     
 }
 
+//유저등록 validation
 function validateForm(){
     $("#contact_form").submit(function(ev){
         ev.preventDefault();
@@ -84,29 +88,32 @@ function validateForm(){
 			 user_password: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required and cannot be empty'
+                        message: '패스워드를 입력해주세요.'
                     },
                     stringLength: {
                         min: 8,
-                        message: 'The password must have at least 8 characters'
+                        message: '패스워드를 최소 8자이상 입력해주세요.'
                     }
                 }
             },
             confirm_password: {
                 validators: {
+                    notEmpty: {
+                        message: '패스워드 확인을 입력해주세요.'
+                    },
                     identical: {
                         field: 'user_password',
-                        message: 'The password and its confirm are not the same'
+                        message: '패스워드와 일치하지 않습니다.'
                     }
                 }
             },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required and cannot be empty'
+                        message: '이메일 주소를 입력해주세요.'
                     },
                     emailAddress: {
-                        message: 'The email address is not a valid'
+                        message: '이메일 주소의 형식이 맞지 않습니다.'
                     },
                     regexp: {
                         regexp: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@samsung.com$/,
@@ -128,6 +135,7 @@ function validateForm(){
         
 }
 
+//유저등록시 form체크 이상유무.
 function isSubmitOk(){
     var disabledYN = true;
     $('.input-group > i').each(function(){
@@ -139,10 +147,11 @@ function isSubmitOk(){
     return disabledYN;
 }
 
+//data table 작성
 function makeGrid(){
     setTimeout(function() { 
-        $('#example').DataTable(); 
-        $('#example_length').hide();
+        $('#booklist').DataTable(); 
+        $('#booklist_length').hide();
     }, 200);
         
 }

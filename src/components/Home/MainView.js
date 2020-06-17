@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CHANGE_TAB } from '../../constants/actionTypes';
@@ -37,7 +37,7 @@ const MainView = props => {
 
   
   return (
-    <table id="example" className="table table-striped table-bordered">
+    <table id="booklist" className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>도서명</th>
