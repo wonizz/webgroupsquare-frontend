@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+import SuccessModal from './SuccessModal';
 class Header extends React.Component {
   render() {
     let currentUser = this.props.currentUser;
@@ -20,34 +21,35 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
             </button>
             {
-              `${currentUser}`!==""
-              ? (<Link className="navbar-brand" to="/">WEBGROUP</Link>)
-              : (<Link className="navbar-brand" to="/login">WEBGROUP  </Link>)  
+              `${currentUser}` !== ""
+                ? (<Link className="navbar-brand" to="/">WEBGROUP</Link>)
+                : (<Link className="navbar-brand" to="/login">WEBGROUP  </Link>)
             }
-            
+
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-           
+
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/">{
-                `${currentUser}`!==""
-                ? ('BOOK LIST')
-                : ('')  
+                `${currentUser}` !== ""
+                  ? ('BOOK LIST')
+                  : ('')
               }</Link></li>
               <li><Link to="/mypage">{
-                `${currentUser}`!==""
-                ? ('MY PAGE')
-                : ('')  
+                `${currentUser}` !== ""
+                  ? ('MY PAGE')
+                  : ('')
               }</Link></li>
               <li><Link to="#" onClick={clickHandler}>{
-                `${currentUser}`!==""
-                ? ('LOG OUT')
-                : ('')  
+                `${currentUser}` !== ""
+                  ? ('LOG OUT')
+                  : ('')
               }</Link></li>
             </ul>
           </div>
         </div>
+        <SuccessModal />
       </nav>
     );
   }
