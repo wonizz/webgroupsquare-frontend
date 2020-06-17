@@ -33,14 +33,14 @@ const promiseMiddleware = store => next => action => {
         console.log('ERROR', error);
         action.error = true;
         action.payload = error.response.body;
-        
+
         if (action.payload.message === 'token expired' || action.payload.message === 'invalid token') {
           //store.dispatch({ type: LOGOUT })
           window.localStorage.setItem('jwt', '');
           window.location.href = '/login';
           return;
         }
-        
+
         if (!action.skipTracking) {
           store.dispatch({ type: ASYNC_END, promise: action.payload });
         }
