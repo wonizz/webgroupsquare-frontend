@@ -117,7 +117,7 @@ function validateForm(){
                     },
                     regexp: {
                         regexp: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@samsung.com$/,
-                        message: 'The e-mail must be end with samsung.com'
+                        message: '이메일은 samsung.com만 허용됩니다.'
                     }   
                 }
             }
