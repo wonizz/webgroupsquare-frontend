@@ -31,7 +31,9 @@ class Login extends React.Component {
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.submitForm = (email, password) => ev => {
       ev.preventDefault();
-      if (email === "" || password === "" || email === undefined || password === undefined) {
+      email = email || "";
+      password = password || "";
+      if (email === "" || password === "") {
         this.props.onError();
       } else {
         this.props.onSubmit(email, password);

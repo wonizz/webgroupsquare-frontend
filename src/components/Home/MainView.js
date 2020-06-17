@@ -75,10 +75,10 @@ const MainView = props => {
                         {
                           `${book.duedate}`==="" 
                           ? (<Link to="#reservationModal" title={book.title} email={props.email.id} onClick={clickHandler} data-toggle="modal">
-                                <button className="btn btn-primary">대여하기</button>
+                                <button type="button" className="btn btn-primary">대여하기</button>
                             </Link>)
                           : (
-                              <button className="btn btn-light" disabled>대여불가</button>
+                              <button type="button" className="btn btn-light disabled">대여불가</button>
                             )  
                         }
                     </td>
