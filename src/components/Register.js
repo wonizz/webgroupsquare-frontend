@@ -65,12 +65,12 @@ class Register extends React.Component {
     const styleObj = {
       "margin-left": "30px",
     }
+    if (this.props.success) {
+      window.openSuccessModal();
+      window.closeSuccessModalEvent();
+    }
     return (
-
       <div className="container fadeInDown">
-        <SuccessModal
-          success={this.props.success}
-        />
         <form id="contact_form" className="well form-horizontal" onSubmit={this.submitForm(username, email, password)} data-toggle="validator" role="form">
           <fieldset>
             <legend><center><h2><b>Registration Form</b></h2></center></legend>
