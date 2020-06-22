@@ -87,19 +87,15 @@ class Login extends React.Component {
 
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
-              <div className="col-md-4">
+              <div className="text-center">
                 <button
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-block custom-btn"
                   type="submit"
-                  disabled={this.props.inProgress}>
+                  disabled={this.props.inProgress}
+                  >
                   Login
                   </button>
-                <Link to="/register">
-                  <button
-                    className="btn btn-primary btn-lg" style={styleObj}>
-                    create Account
-                  </button>
-                </Link>
+                <p class="text-center"><Link to="/register" class="btn">Create Account?</Link></p>
               </div>
             </div>
           </fieldset>

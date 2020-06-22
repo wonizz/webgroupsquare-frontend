@@ -301,3 +301,8 @@
     width:60%;
   }
   
+  @media (min-width: 768px) { 
+    .custom-btn {
+      width:33%
+    }
+  }

@@ -144,19 +144,14 @@ class Register extends React.Component {
             </div>
             <div className="form-group">
               <label className="col-md-4 control-label"></label>
-              <div className="col-md-4">
+              <div className="text-center">
                 <button
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-block custom-btn"
                   type="submit"
                   disabled={this.props.inProgress}>
                   Sign up
                   </button>
-                <Link to="/login">
-                  <button
-                    className="btn btn-primary btn-lg" style={styleObj}>
-                    Back
-                  </button>
-                </Link>
+                  <p class="text-center"><Link to="/login" class="btn">Already Have an Account?</Link></p>
               </div>
             </div>
           </fieldset>
